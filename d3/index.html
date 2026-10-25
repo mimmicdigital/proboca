@@ -325,6 +325,35 @@ html.js .gal.up.in figure:nth-child(2){transition-delay:.1s}html.js .gal.up.in f
 }
 @media (max-width:760px){.hbar{display:none}.htxt{padding-bottom:110px}}
 @media (prefers-reduced-motion:reduce){.ln>span,.fx{transform:none;opacity:1}.slides img{transition:none}html.js .rv-h,html.js .up,html.js .gal.up figure{clip-path:none;opacity:1;transform:none}}
+
+/* tratamientos */
+.qtp{padding-top:88px}
+.trat{background:var(--soft)}
+.trat-g{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}
+.trat .lado{position:sticky;top:110px}
+.trt{border-top:1px solid var(--line);border-bottom:0;padding:0}
+.trt:last-child{border-bottom:1px solid var(--line)}
+.trt summary{display:grid;grid-template-columns:56px 1fr 28px;gap:20px;align-items:center;padding:20px 16px;border-radius:14px;cursor:pointer;transition:background .35s var(--ease),color .35s}
+.trt summary:after{content:none}
+.trt .ic svg{width:52px;height:52px;display:block}
+.trt .ic svg [stroke="#2F2F2F"]{stroke:currentColor}
+.trt .tt b{display:block;font-size:1.4rem;font-weight:450;letter-spacing:-.01em;line-height:1.2}
+.trt .tt span{color:var(--ink-2);font-size:.95rem;font-weight:400}
+.trt i{width:28px;height:28px;position:relative}
+.trt i:before,.trt i:after{content:"";position:absolute;left:6px;right:6px;top:13px;height:2px;background:currentColor;transition:transform .4s var(--ease)}
+.trt i:after{transform:rotate(90deg)}
+.trt[open] i:after{transform:rotate(0)}
+.trt summary:hover{background:var(--olive);color:#fff}
+.trt summary:hover .tt span{color:rgba(255,255,255,.82)}
+.trt[open] summary{background:var(--card)}
+.trt[open] summary:hover{background:var(--olive)}
+.trt-b{padding:6px 16px 22px 92px;color:var(--ink-2)}
+.trt-b p{margin:8px 0 0;max-width:40rem}
+.trt-b .dur b{color:var(--ink);font-weight:500}
+.trt-a{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:14px!important}
+.trt-a a:not(.btn){color:var(--olive-ink);font-weight:500}
+.trt[open] .trt-b{animation:fxin .6s var(--ease)}
+@media (max-width:900px){.trat-g{grid-template-columns:1fr;gap:26px}.trat .lado{position:static}.trt summary{grid-template-columns:44px 1fr 24px;gap:14px;padding:16px 6px}.trt .ic svg{width:42px;height:42px}.trt .tt b{font-size:1.15rem}.trt-b{padding:4px 6px 20px 64px}}
 </style>
 <style>@media (max-width:760px){nav[aria-label="Otras propuestas"]{bottom:92px!important}}</style>
 </head>
@@ -364,15 +393,39 @@ html.js .gal.up.in figure:nth-child(2){transition-delay:.1s}html.js .gal.up.in f
     <p class="sub fx" style="--d:.75s">Implantes con TAC 3D propio, ortodoncia y odontología para toda la familia. Primera visita sin compromiso y presupuesto por escrito antes de empezar.</p>
     <div class="ctas fx" style="--d:.9s">
       <a class="btn p" href="#cita"><svg><use href="#i-cal"/></svg>Pedir primera visita</a>
-      <a class="btn g" href="#tratamientos">Cuéntanos qué te pasa</a>
+      <a class="btn g" href="#que-te-pasa">Cuéntanos qué te pasa</a>
     </div>
   </div>
   <div class="w hbar fx" style="--d:1.1s">
     <a class="hsede" href="tel:+34933704377" data-h="prat"><span class="nm">El Prat</span><span class="live"><i></i><span></span></span><b>933 704 377</b></a>
     <a class="hsede" href="tel:+34936388181" data-h="gava"><span class="nm">Gavà</span><span class="live"><i></i><span></span></span><b>936 388 181</b></a>
-    <a class="hdown" href="#clinicas" aria-label="Bajar a las clínicas"><span></span></a>
+    <a class="hdown" href="#que-te-pasa" aria-label="Bajar a las clínicas"><span></span></a>
   </div>
 </section>
+
+<section id="que-te-pasa" class="qtp"><div class="w">
+  <h2 class="rv-h">¿Qué te pasa?</h2>
+  <p class="sub">Toca lo que notas y te contamos qué solemos hacer y cuánto suele llevar.</p>
+  <div class="mouth-g up">
+    <div class="needs" role="tablist" aria-label="Qué te pasa">
+      <button role="tab" aria-selected="true" aria-controls="np" data-n="dolor"><span class="dot"></span><span>Me duele una muela<small>Urgencias y endodoncia</small></span></button>
+      <button role="tab" aria-selected="false" aria-controls="np" data-n="falta"><span class="dot"></span><span>Me falta un diente<small>Implantes y prótesis</small></span></button>
+      <button role="tab" aria-selected="false" aria-controls="np" data-n="orto"><span class="dot"></span><span>Los quiero rectos<small>Brackets e Invisalign</small></span></button>
+      <button role="tab" aria-selected="false" aria-controls="np" data-n="revision"><span class="dot"></span><span>Toca revisión<small>Revisión y limpieza</small></span></button>
+      <button role="tab" aria-selected="false" aria-controls="np" data-n="hijos"><span class="dot"></span><span>Es para mis hijos<small>Odontopediatría</small></span></button>
+      <button role="tab" aria-selected="false" aria-controls="np" data-n="estetica"><span class="dot"></span><span>Mejorar mi sonrisa<small>Blanqueamiento y carillas</small></span></button>
+    </div>
+    <div class="panel" id="np" role="tabpanel" aria-live="polite">
+      <svg class="arch" viewBox="22 24 276 196" aria-hidden="true"></svg>
+      <h3 id="np-t">Me duele una muela</h3>
+      <dl>
+        <dt>Qué hacemos</dt><dd id="np-q">Te vemos lo antes posible, buscamos la causa y quitamos el dolor. Si hace falta, una endodoncia salva la muela.</dd>
+        <dt>Cuánto lleva</dt><dd id="np-d">Una visita para quitar el dolor; el tratamiento, una o dos más. <span class="pend">orientativo</span></dd>
+      </dl>
+      <div><a class="btn p" id="np-go" href="#cita" data-m="Me duele"><svg><use href="#i-cal"/></svg>Pedir cita para esto</a></div>
+    </div>
+  </div>
+</div></section>
 
 <section class="clin" id="clinicas"><div class="w">
   <div class="clin-top"><h2 class="rv-h">Dos clínicas, el mismo equipo</h2><p class="sub">Mañana y tarde, con mutuas: <b>DKV, Medicare, GiraDental</b> y Canal Salud 24.</p></div>
@@ -402,27 +455,26 @@ html.js .gal.up.in figure:nth-child(2){transition-delay:.1s}html.js .gal.up.in f
   </div>
 </div></section>
 
-<section id="tratamientos"><div class="w">
-  <h2 class="rv-h">¿Qué te pasa?</h2>
-  <p class="sub">Toca lo que notas y te contamos qué solemos hacer y cuánto suele llevar.</p>
-  <div class="mouth-g up">
-    <div class="needs" role="tablist" aria-label="Qué te pasa">
-      <button role="tab" aria-selected="true" aria-controls="np" data-n="dolor"><span class="dot"></span><span>Me duele una muela<small>Urgencias y endodoncia</small></span></button>
-      <button role="tab" aria-selected="false" aria-controls="np" data-n="falta"><span class="dot"></span><span>Me falta un diente<small>Implantes y prótesis</small></span></button>
-      <button role="tab" aria-selected="false" aria-controls="np" data-n="orto"><span class="dot"></span><span>Los quiero rectos<small>Brackets e Invisalign</small></span></button>
-      <button role="tab" aria-selected="false" aria-controls="np" data-n="revision"><span class="dot"></span><span>Toca revisión<small>Revisión y limpieza</small></span></button>
-      <button role="tab" aria-selected="false" aria-controls="np" data-n="hijos"><span class="dot"></span><span>Es para mis hijos<small>Odontopediatría</small></span></button>
-      <button role="tab" aria-selected="false" aria-controls="np" data-n="estetica"><span class="dot"></span><span>Mejorar mi sonrisa<small>Blanqueamiento y carillas</small></span></button>
-    </div>
-    <div class="panel" id="np" role="tabpanel" aria-live="polite">
-      <svg class="arch" viewBox="22 24 276 196" aria-hidden="true"></svg>
-      <h3 id="np-t">Me duele una muela</h3>
-      <dl>
-        <dt>Qué hacemos</dt><dd id="np-q">Te vemos lo antes posible, buscamos la causa y quitamos el dolor. Si hace falta, una endodoncia salva la muela.</dd>
-        <dt>Cuánto lleva</dt><dd id="np-d">Una visita para quitar el dolor; el tratamiento, una o dos más. <span class="pend">orientativo</span></dd>
-      </dl>
-      <div><a class="btn p" id="np-go" href="#cita" data-m="Me duele"><svg><use href="#i-cal"/></svg>Pedir cita para esto</a></div>
-    </div>
+
+<section class="trat" id="tratamientos"><div class="w trat-g">
+  <div class="lado"><h2 class="rv-h">Tratamientos para toda la familia</h2><p class="sub">De la primera revisión de los niños a una boca completa sobre implantes. Toca un tratamiento para ver en qué consiste y cuánto suele llevar.</p></div>
+  <div class="lista up">
+    <details class="trt"><summary><span class="ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#2F2F2F" stroke-width="3"/><circle cx="32" cy="32" r="17" fill="none" stroke="#2F2F2F" stroke-width="3"/><circle stroke="#4AA4BD" cx="32" cy="32" r="7" fill="none" stroke-width="3"/></svg></span><span class="tt"><b>Cirugía e implantes</b><span>TAC 3D, cirugía guiada y carga inmediata cuando se puede.</span></span><i aria-hidden="true"></i></summary>
+      <div class="trt-b"><p>Para quien ha perdido uno o varios dientes. Planificamos el implante con el TAC 3D de la clínica y lo colocamos con una guía impresa en 3D, con anestesia local y, si lo prefieres, sedación.</p><p class="dur"><b>Cuánto lleva:</b> Del implante al diente definitivo suelen pasar de 3 a 6 meses. <span class="pend">orientativo</span></p><p class="trt-a"><a class="btn p sm" href="#cita">Pedir cita</a> <a href="#implantes">Ver el implante paso a paso</a></p></div></details>
+    <details class="trt"><summary><span class="ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#2F2F2F" stroke-width="3"/><rect x="17" y="25" width="30" height="14" rx="4" fill="none" stroke="#2F2F2F" stroke-width="3"/><path stroke="#4AA4BD" d="M12 32h40" stroke-width="3" stroke-linecap="round"/></svg></span><span class="tt"><b>Ortodoncia e Invisalign</b><span>Brackets o alineadores transparentes, con seguimiento en la clínica.</span></span><i aria-hidden="true"></i></summary>
+      <div class="trt-b"><p>Para alinear los dientes y corregir la mordida a cualquier edad. Estudiamos tu caso con escáner intraoral y te enseñamos el resultado previsto antes de empezar.</p><p class="dur"><b>Cuánto lleva:</b> Entre 12 y 24 meses, con revisiones cada pocas semanas. <span class="pend">orientativo</span></p><p class="trt-a"><a class="btn p sm" href="#cita">Pedir cita</a></p></div></details>
+    <details class="trt"><summary><span class="ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#2F2F2F" stroke-width="3"/><path d="M18 30a14 14 0 0 1 28 0z" fill="none" stroke="#2F2F2F" stroke-width="3" stroke-linejoin="round"/><path stroke="#4AA4BD" d="M20 38h24" stroke-width="3" stroke-linecap="round"/></svg></span><span class="tt"><b>Prótesis</b><span>Fijas o removibles, con impresión 3D.</span></span><i aria-hidden="true"></i></summary>
+      <div class="trt-b"><p>Coronas, puentes y dentaduras para recuperar la función y la estética. Muchas piezas se diseñan con escáner digital, sin moldes de pasta.</p><p class="dur"><b>Cuánto lleva:</b> Unas semanas, según el tipo de prótesis. <span class="pend">orientativo</span></p><p class="trt-a"><a class="btn p sm" href="#cita">Pedir cita</a></p></div></details>
+    <details class="trt"><summary><span class="ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#2F2F2F" stroke-width="3"/><path stroke="#4AA4BD" d="M32 15c7 9 12 15 12 21a12 12 0 0 1-24 0c0-6 5-12 12-21z" fill="none" stroke-width="3" stroke-linejoin="round"/></svg></span><span class="tt"><b>Periodoncia</b><span>Salud de encías y regeneración ósea.</span></span><i aria-hidden="true"></i></summary>
+      <div class="trt-b"><p>Si te sangran las encías o notas los dientes más largos, tratamos la enfermedad de las encías y, si hace falta, regeneramos el hueso para poder poner implantes.</p><p class="dur"><b>Cuánto lleva:</b> Un tratamiento inicial de una o dos sesiones y mantenimiento periódico. <span class="pend">orientativo</span></p><p class="trt-a"><a class="btn p sm" href="#cita">Pedir cita</a></p></div></details>
+    <details class="trt"><summary><span class="ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#2F2F2F" stroke-width="3"/><circle cx="32" cy="32" r="14" fill="none" stroke="#2F2F2F" stroke-width="3"/><circle stroke="#4AA4BD" cx="32" cy="32" r="3" fill="#4AA4BD" stroke-width="2"/></svg></span><span class="tt"><b>Endodoncia</b><span>Salvamos el diente cuando el nervio está dañado.</span></span><i aria-hidden="true"></i></summary>
+      <div class="trt-b"><p>Cuando una caries llega al nervio o hay un golpe, limpiamos el interior del diente y lo sellamos para conservarlo en vez de quitarlo.</p><p class="dur"><b>Cuánto lleva:</b> Una o dos visitas. <span class="pend">orientativo</span></p><p class="trt-a"><a class="btn p sm" href="#cita">Pedir cita</a></p></div></details>
+    <details class="trt"><summary><span class="ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#2F2F2F" stroke-width="3"/><path stroke="#4AA4BD" d="M32 27c3-7 13-8 13 2 0 7-8 11-13 16-5-5-13-9-13-16 0-10 10-9 13-2z" fill="none" stroke-width="3" stroke-linejoin="round"/></svg></span><span class="tt"><b>Estética dental</b><span>Diseño de sonrisa, carillas y blanqueamiento.</span></span><i aria-hidden="true"></i></summary>
+      <div class="trt-b"><p>Para cambiar el color o la forma de los dientes. Antes de tocar nada te enseñamos cómo quedaría tu sonrisa.</p><p class="dur"><b>Cuánto lleva:</b> El blanqueamiento, una o dos sesiones; las carillas, unas semanas. <span class="pend">orientativo</span></p><p class="trt-a"><a class="btn p sm" href="#cita">Pedir cita</a></p></div></details>
+    <details class="trt"><summary><span class="ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#2F2F2F" stroke-width="3"/><circle cx="32" cy="32" r="9" fill="none" stroke="#2F2F2F" stroke-width="3"/><path stroke="#4AA4BD" d="M32 14v6M32 44v6M14 32h6M44 32h6" stroke-width="3" stroke-linecap="round"/></svg></span><span class="tt"><b>Odontopediatría y ortodoncia infantil</b><span>Guiar el crecimiento de la boca a tiempo.</span></span><i aria-hidden="true"></i></summary>
+      <div class="trt-b"><p>Revisiones tranquilas para que los niños no le cojan miedo al dentista, selladores y ortodoncia temprana cuando conviene.</p><p class="dur"><b>Cuánto lleva:</b> Una visita corta cada 6 meses. <span class="pend">orientativo</span></p><p class="trt-a"><a class="btn p sm" href="#cita">Pedir cita</a></p></div></details>
+    <details class="trt"><summary><span class="ic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#2F2F2F" stroke-width="3"/><path stroke="#4AA4BD" d="M32 18c1.5 8 6 12.5 14 14-8 1.5-12.5 6-14 14-1.5-8-6-12.5-14-14 8-1.5 12.5-6 14-14z" fill="none" stroke-width="3" stroke-linejoin="round"/></svg></span><span class="tt"><b>Revisión y limpieza</b><span>Cada seis meses, en El Prat o en Gavà.</span></span><i aria-hidden="true"></i></summary>
+      <div class="trt-b"><p>Revisamos dientes y encías, quitamos el sarro y te avisamos de cualquier cosa que convenga vigilar, antes de que duela.</p><p class="dur"><b>Cuánto lleva:</b> Unos 45 minutos. <span class="pend">orientativo</span></p><p class="trt-a"><a class="btn p sm" href="#cita">Pedir cita</a></p></div></details>
   </div>
 </div></section>
 
