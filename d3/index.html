@@ -26,8 +26,8 @@
   --ease:cubic-bezier(.16,1,.3,1);
   accent-color:var(--olive);
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#1b1c1a;--soft:#232421;--card:#292a26;--ink:#f1f0ea;--ink-2:#b9bab2;--line:#3b3c36;--olive-soft:#33361f;--olive-ink:#c4cf8f;--olive-deep:#2b3118;--blue-ink:#7cc3d6;--blue-soft:#1f3239;--tooth:#e9e8e2;--tooth-line:#6f736c;color-scheme:dark}}
-:root[data-theme="dark"]{--paper:#1b1c1a;--soft:#232421;--card:#292a26;--ink:#f1f0ea;--ink-2:#b9bab2;--line:#3b3c36;--olive-soft:#33361f;--olive-ink:#c4cf8f;--olive-deep:#2b3118;--blue-ink:#7cc3d6;--blue-soft:#1f3239;--tooth:#e9e8e2;--tooth-line:#6f736c;color-scheme:dark}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#191a17;--soft:#23241f;--card:#2b2c27;--ink:#f1f0ea;--ink-2:#b9bab2;--line:#3b3c36;--olive-soft:#262a18;--olive-ink:#c4cf8f;--olive-deep:#12130f;--blue-ink:#7cc3d6;--blue-soft:#1f3239;--tooth:#e9e8e2;--tooth-line:#6f736c;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#191a17;--soft:#23241f;--card:#2b2c27;--ink:#f1f0ea;--ink-2:#b9bab2;--line:#3b3c36;--olive-soft:#262a18;--olive-ink:#c4cf8f;--olive-deep:#12130f;--blue-ink:#7cc3d6;--blue-soft:#1f3239;--tooth:#e9e8e2;--tooth-line:#6f736c;color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:clip;scroll-padding-top:84px}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--font);overflow-x:clip;caret-color:var(--olive)}
@@ -180,12 +180,13 @@ nav.top a:hover{color:var(--ink)}
 .rv{border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:14px;background:var(--soft)}
 .rv .st{color:#d99a00;letter-spacing:2px}
 .rv p{margin:0;font-size:1.15rem}
-.rv.big{grid-row:span 2;background:var(--blue-soft);justify-content:space-between}
+.rv.big{grid-row:span 2;justify-content:space-between}
+.rv.big p:before{content:"“";display:block;font-size:4rem;line-height:.6;color:var(--blue-ink);margin-bottom:10px}
 .rv.big p{font-size:clamp(1.5rem,2.6vw,2.2rem);line-height:1.25;letter-spacing:-.01em}
 .rv small{color:var(--ink-2)}
 .scores{display:flex;gap:28px;margin-top:22px;flex-wrap:wrap}
 .scores div b{font-size:2.4rem;font-weight:400;line-height:1;display:block;letter-spacing:-.02em}
-.scores div span{font-size:.9rem;color:var(--ink-2)}
+.scores div>span{font-size:.9rem;color:var(--ink-2)}
 @media (max-width:900px){.rev-g{grid-template-columns:1fr}.rv.big{grid-row:auto}}
 
 /* galería horizontal */
@@ -323,7 +324,7 @@ html.js .gal.up.in figure:nth-child(2){transition-delay:.1s}html.js .gal.up.in f
   .hsede>b{grid-row:auto;grid-column:1;font-size:1.05rem}
   .hsede small{display:none}
 }
-@media (max-width:760px){.hbar{display:none}.htxt{padding-bottom:110px}}
+@media (max-width:760px){.htxt{padding-bottom:20px;padding-top:120px}.hbar{padding-bottom:104px;gap:8px}.hsede{padding:10px 12px;gap:2px}.hsede>b{display:none}.hsede .nm{font-size:1rem}.hsede .live{font-size:.8rem}header .btn{display:none}.hero .glow{top:96px}}
 @media (prefers-reduced-motion:reduce){.ln>span,.fx{transform:none;opacity:1}.slides img{transition:none}html.js .rv-h,html.js .up,html.js .gal.up figure{clip-path:none;opacity:1;transform:none}}
 
 /* tratamientos */
@@ -354,6 +355,53 @@ html.js .gal.up.in figure:nth-child(2){transition-delay:.1s}html.js .gal.up.in f
 .trt-a a:not(.btn){color:var(--olive-ink);font-weight:500}
 .trt[open] .trt-b{animation:fxin .6s var(--ease)}
 @media (max-width:900px){.trat-g{grid-template-columns:1fr;gap:26px}.trat .lado{position:static}.trt summary{grid-template-columns:44px 1fr 24px;gap:14px;padding:16px 6px}.trt .ic svg{width:42px;height:42px}.trt .tt b{font-size:1.15rem}.trt-b{padding:4px 6px 20px 64px}}
+
+/* ===== ritmo de fondos (tras el critique) =====
+   portada oscura · qué te pasa (blanco) · clínicas (suave) · tratamientos (blanco) · precio (oliva claro)
+   implante (blanco) · opiniones (suave) · galería + equipo (blanco) · preguntas (suave) · cita + pie (oscuro) */
+.qtp{background:var(--paper)}
+.panel{background:var(--soft)}
+.clin{background:var(--soft);padding-bottom:96px}
+.clin .sede{background:var(--card);border-color:transparent}
+.trat{background:var(--paper)}
+.trt[open] summary{background:var(--soft)}
+.band{background:var(--olive-soft);color:var(--ink)}
+.band h2{color:var(--ink)}
+.band .sub,.band-g p{color:var(--ink-2)}
+.band-g{border-top-color:color-mix(in srgb,var(--olive) 35%,transparent)}
+.band-g div+div{border-left-color:color-mix(in srgb,var(--olive) 35%,transparent)}
+.band-g b{color:var(--olive-ink)}
+.ins span{border-color:color-mix(in srgb,var(--olive) 45%,transparent);background:var(--card);color:var(--ink)}
+.band .pend{color:#8a5a00}
+.band:after{background:radial-gradient(closest-side,rgba(74,164,189,.16),transparent)}
+@media (max-width:900px){.band-g div,.band-g div+div{border-bottom-color:color-mix(in srgb,var(--olive) 35%,transparent)}}
+.bg-soft{background:var(--soft)}
+.bg-soft .rv{background:var(--card)}
+.galsec{padding-bottom:40px}
+.teamsec{padding-top:40px}
+.cita{background:var(--olive-deep)}
+.cita:before{background:radial-gradient(closest-side,rgba(74,164,189,.3),transparent)}
+footer.dark{background:var(--olive-deep);color:#b9bdaa;border-top:1px solid rgba(255,255,255,.1)}
+.stage svg{background:var(--soft)}
+.trt summary:hover{background:var(--soft);color:var(--ink)}
+.trt summary:hover .tt span{color:var(--ink-2)}
+@media (hover:hover){.trt summary:hover{background:var(--olive-soft)}}
+#f-msg.err{color:#b3261e;font-weight:500}
+input[aria-invalid="true"]{border-color:#b3261e;background:#fff6f5}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) form{background:var(--card);color:var(--ink)}:root:not([data-theme="light"]) input,:root:not([data-theme="light"]) select{background:#1f201c;border-color:#45463f;color:var(--ink)}:root:not([data-theme="light"]) form small{color:var(--ink-2)}:root:not([data-theme="light"]) #f-msg.err{color:#ff9a8f}:root:not([data-theme="light"]) input[aria-invalid="true"]{background:#2e1f1d}:root:not([data-theme="light"]) .band .pend{color:#8a5a00}}
+
+/* ajustes del detector y la revisión en navegador */
+:focus-visible{outline-color:var(--blue-ink)}
+.hero :focus-visible,.cita :focus-visible,footer.dark :focus-visible{outline-color:#7cc3d6}
+@media (max-width:760px){html{scroll-padding-bottom:110px}}
+html.js .up:focus-within{opacity:1;transform:none}
+.rv .st,.scores .st{color:#a86f00}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rv .st{color:#e3a008}}
+input::placeholder{color:#686c68}
+.hero h1{font-size:clamp(2.7rem,5.6vw,4.8rem)}
+.hero:before{background:linear-gradient(90deg,rgba(15,17,12,.9) 0%,rgba(15,17,12,.7) 45%,rgba(15,17,12,.2) 80%),linear-gradient(0deg,rgba(15,17,12,.85) 0%,transparent 40%),linear-gradient(180deg,rgba(15,17,12,.75) 0%,transparent 26%)}
+@media (max-width:900px){.hero:before{background:linear-gradient(0deg,rgba(15,17,12,.94) 0%,rgba(15,17,12,.78) 55%,rgba(15,17,12,.62) 100%)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 <style>@media (max-width:760px){nav[aria-label="Otras propuestas"]{bottom:92px!important}}</style>
 </head>
@@ -374,7 +422,7 @@ html.js .gal.up.in figure:nth-child(2){transition-delay:.1s}html.js .gal.up.in f
   <a class="logo" href="#" aria-label="Proboca Clinic"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1475 414" role="img" aria-label="Proboca">
 <g fill="#2F2F2F"><path d="M81.42857142857143 95.0V195.0H93.57142857142857V155.0H108.57142857142857Q118.28571428571428 155.0 125.92857142857142 151.35714285714286Q133.57142857142856 147.71428571428572 138.07142857142856 140.92857142857144Q142.57142857142856 134.14285714285714 142.57142857142856 125.0Q142.57142857142856 115.71428571428572 138.07142857142856 109.0Q133.57142857142856 102.28571428571429 125.92857142857142 98.64285714285714Q118.28571428571428 95.0 108.57142857142857 95.0ZM93.57142857142857 143.57142857142858V106.42857142857143H108.57142857142857Q118.28571428571428 106.42857142857143 124.35714285714285 111.07142857142858Q130.42857142857142 115.71428571428572 130.42857142857142 125.0Q130.42857142857142 134.14285714285714 124.35714285714285 138.85714285714286Q118.28571428571428 143.57142857142858 108.57142857142857 143.57142857142858Z M173.7142857142857 95.0V195.0H185.85714285714283V155.0H198.0L225.85714285714283 195.0H240.85714285714283L211.0 153.85714285714286Q214.85714285714283 153.0 218.28571428571428 151.28571428571428Q225.85714285714283 147.71428571428572 230.35714285714283 140.92857142857144Q234.85714285714283 134.14285714285714 234.85714285714283 125.0Q234.85714285714283 115.71428571428572 230.35714285714283 109.0Q225.85714285714283 102.28571428571429 218.2142857142857 98.64285714285714Q210.57142857142856 95.0 200.85714285714283 95.0ZM185.85714285714283 144.28571428571428V105.71428571428572H200.85714285714283Q207.28571428571428 105.71428571428572 212.21428571428572 108.0Q217.14285714285714 110.28571428571429 219.92857142857142 114.57142857142858Q222.7142857142857 118.85714285714286 222.7142857142857 125.0Q222.7142857142857 131.14285714285714 219.92857142857142 135.42857142857144Q217.14285714285714 139.71428571428572 212.21428571428572 142.0Q207.28571428571428 144.28571428571428 200.85714285714283 144.28571428571428Z M274.85714285714283 145.0Q274.85714285714283 133.71428571428572 279.7857142857143 124.85714285714286Q284.7142857142857 116.0 293.2857142857143 110.85714285714286Q301.85714285714283 105.71428571428572 312.7142857142857 105.71428571428572Q323.7142857142857 105.71428571428572 332.2142857142857 110.85714285714286Q340.7142857142857 116.0 345.6428571428571 124.85714285714286Q350.57142857142856 133.71428571428572 350.57142857142856 145.0Q350.57142857142856 156.28571428571428 345.6428571428571 165.14285714285714Q340.7142857142857 174.0 332.2142857142857 179.14285714285714Q323.7142857142857 184.28571428571428 312.7142857142857 184.28571428571428Q301.85714285714283 184.28571428571428 293.2857142857143 179.14285714285714Q284.7142857142857 174.0 279.7857142857143 165.14285714285714Q274.85714285714283 156.28571428571428 274.85714285714283 145.0ZM262.0 145.0Q262.0 155.85714285714286 265.7857142857143 165.28571428571428Q269.57142857142856 174.71428571428572 276.42857142857144 181.64285714285717Q283.2857142857143 188.57142857142858 292.57142857142856 192.5Q301.85714285714283 196.42857142857142 312.7142857142857 196.42857142857142Q323.7142857142857 196.42857142857142 332.92857142857144 192.5Q342.1428571428571 188.57142857142858 349.0 181.64285714285717Q355.85714285714283 174.71428571428572 359.6428571428571 165.28571428571428Q363.42857142857144 155.85714285714286 363.42857142857144 145.0Q363.42857142857144 134.0 359.6428571428571 124.64285714285714Q355.85714285714283 115.28571428571429 349.0 108.35714285714286Q342.1428571428571 101.42857142857143 332.92857142857144 97.5Q323.7142857142857 93.57142857142858 312.7142857142857 93.57142857142858Q301.85714285714283 93.57142857142858 292.57142857142856 97.5Q283.2857142857143 101.42857142857143 276.42857142857144 108.35714285714286Q269.57142857142856 115.28571428571429 265.7857142857143 124.64285714285714Q262.0 134.0 262.0 145.0Z"/><rect x="70" y="228" width="299.1428571428571" height="16"/><path d="M535.6571428571428 194.48571428571427Q538.6142857142858 193.5 541.5714285714286 192.51428571428573Q556.6857142857143 186.6 565.2285714285715 175.1Q573.7714285714286 163.6 573.7714285714286 147.5Q573.7714285714286 127.78571428571428 565.2285714285715 115.13571428571429Q556.6857142857143 102.4857142857143 541.4071428571428 96.24285714285715Q526.1285714285714 90.0 505.42857142857144 90.0H446.2857142857143V320.0H508.7142857142857Q531.0571428571428 320.0 548.6357142857144 312.6071428571429Q566.2142857142858 305.2142857142857 576.5642857142857 290.26428571428573Q586.9142857142857 275.3142857142857 586.9142857142857 252.64285714285714Q586.9142857142857 236.87142857142857 581.0 225.37142857142857Q575.0857142857143 213.87142857142857 564.4071428571428 206.47857142857143Q553.7285714285714 199.0857142857143 539.6 195.4714285714286Q537.6285714285714 194.81428571428572 535.6571428571428 194.48571428571427ZM474.2142857142857 207.3H508.7142857142857Q519.8857142857142 207.3 529.0857142857143 210.09285714285716Q538.2857142857143 212.8857142857143 545.0214285714286 218.4714285714286Q551.7571428571429 224.05714285714288 555.3714285714286 232.27142857142857Q558.9857142857143 240.48571428571427 558.9857142857143 251.0Q558.9857142857143 265.12857142857143 552.5785714285714 274.98571428571427Q546.1714285714286 284.84285714285716 534.8357142857143 290.1Q523.5 295.35714285714283 508.7142857142857 295.35714285714283H474.2142857142857ZM474.2142857142857 182.9857142857143V114.64285714285714H505.42857142857144Q522.8428571428572 114.64285714285714 534.3428571428572 123.67857142857143Q545.8428571428572 132.71428571428572 545.8428571428572 149.14285714285714Q545.8428571428572 159.9857142857143 540.5857142857143 167.54285714285714Q535.3285714285714 175.1 526.1285714285714 179.04285714285714Q516.9285714285714 182.9857142857143 505.42857142857144 182.9857142857143Z"/><path fill-rule="evenodd" d="M643.34,205.00 a115.00,115.00 0 1,0 230.00,0 a115.00,115.00 0 1,0 -230.00,0 Z M666.69,205.00 a91.65,91.65 0 1,1 183.31,0 a91.65,91.65 0 1,1 -183.31,0 Z"/><path d="M956.0571428571428 205.0Q956.0571428571428 178.05714285714285 968.05 157.85Q980.0428571428572 137.64285714285714 999.4285714285714 126.14285714285714Q1018.8142857142857 114.64285714285714 1041.4857142857143 114.64285714285714Q1057.9142857142858 114.64285714285714 1071.5500000000002 118.91428571428571Q1085.1857142857143 123.18571428571428 1096.357142857143 130.90714285714284Q1107.5285714285715 138.62857142857143 1115.4142857142858 148.81428571428572V112.0142857142857Q1100.9571428571428 99.19999999999999 1083.8714285714286 92.95714285714286Q1066.7857142857142 86.71428571428572 1041.4857142857143 86.71428571428572Q1017.5 86.71428571428572 996.6357142857144 95.42142857142858Q975.7714285714286 104.12857142857143 960.0 120.06428571428572Q944.2285714285714 136.0 935.3571428571429 157.68571428571428Q926.4857142857143 179.37142857142857 926.4857142857143 205.0Q926.4857142857143 230.62857142857143 935.3571428571429 252.31428571428572Q944.2285714285714 274.0 960.0 289.9357142857143Q975.7714285714286 305.87142857142857 996.6357142857144 314.5785714285714Q1017.5 323.2857142857143 1041.4857142857143 323.2857142857143Q1066.7857142857142 323.2857142857143 1083.8714285714286 317.04285714285714Q1100.9571428571428 310.8 1115.4142857142858 297.98571428571427V261.1857142857143Q1107.5285714285715 271.37142857142857 1096.357142857143 279.09285714285716Q1085.1857142857143 286.8142857142857 1071.5500000000002 291.0857142857143Q1057.9142857142858 295.35714285714283 1041.4857142857143 295.35714285714283Q1018.8142857142857 295.35714285714283 999.4285714285714 283.85714285714283Q980.0428571428572 272.35714285714283 968.05 251.98571428571427Q956.0571428571428 231.6142857142857 956.0571428571428 205.0Z M1323.1714285714288 251.0 1352.4142857142858 320.0H1383.6285714285716L1276.8428571428572 78.5L1170.057142857143 320.0H1201.2714285714287L1230.5142857142857 251.0ZM1276.8428571428572 141.9142857142857 1312.0 224.71428571428572H1241.6857142857143Z"/></g>
 <path fill-rule="evenodd" fill="#4AA4BD" d="M788.29,157.92 C786.02,157.34 783.55,157.09 781.61,156.93 C779.67,156.76 778.39,156.80 776.66,156.93 C774.92,157.05 773.15,157.21 771.21,157.67 C769.27,158.12 766.84,158.91 765.02,159.65 C763.20,160.39 761.31,161.55 760.32,162.13 C759.33,162.70 759.49,162.95 759.08,163.12 C758.67,163.28 758.50,163.40 757.84,163.12 C757.18,162.83 756.35,162.04 755.12,161.38 C753.88,160.72 752.23,159.81 750.41,159.15 C748.60,158.49 745.91,157.79 744.22,157.42 C742.53,157.05 741.79,157.01 740.26,156.93 C738.73,156.84 737.33,156.68 735.06,156.93 C732.79,157.17 728.71,157.92 726.64,158.41 C724.58,158.91 724.04,159.28 722.68,159.90 C721.32,160.52 719.83,161.26 718.47,162.13 C717.11,162.99 715.83,163.94 714.51,165.10 C713.19,166.25 711.95,167.32 710.55,169.06 C709.15,170.79 707.29,173.27 706.09,175.50 C704.90,177.72 703.99,180.57 703.37,182.43 C702.75,184.28 702.63,185.11 702.38,186.64 C702.13,188.16 701.97,189.81 701.88,191.59 C701.80,193.36 701.80,195.59 701.88,197.28 C701.97,198.98 702.17,200.42 702.38,201.74 C702.59,203.06 702.67,203.64 703.12,205.21 C703.58,206.77 704.19,208.96 705.10,211.15 C706.01,213.34 707.50,216.27 708.57,218.33 C709.64,220.39 710.22,221.47 711.54,223.53 C712.86,225.59 714.76,228.36 716.49,230.71 C718.22,233.06 719.22,234.55 721.94,237.64 C724.66,240.74 729.74,246.18 732.83,249.28 C735.93,252.37 737.33,253.57 740.51,256.21 C743.69,258.85 748.93,262.98 751.90,265.12 C754.87,267.27 757.06,268.51 758.34,269.09 C759.61,269.66 758.21,269.46 759.57,268.59 C760.93,267.72 763.78,265.91 766.51,263.89 C769.23,261.86 773.27,258.65 775.91,256.46 C778.56,254.27 779.59,253.45 782.35,250.76 C785.12,248.08 789.61,243.58 792.50,240.36 C795.39,237.15 797.21,234.88 799.68,231.45 C802.16,228.03 805.46,222.99 807.36,219.81 C809.26,216.64 810.04,214.82 811.07,212.39 C812.10,209.95 812.93,207.48 813.55,205.21 C814.17,202.94 814.58,200.34 814.79,198.77 C814.99,197.20 814.75,196.33 814.79,195.80 C814.83,195.26 815.03,196.58 815.03,195.55 C815.03,194.52 815.03,191.67 814.79,189.61 C814.54,187.54 814.29,185.61 813.55,183.17 C812.81,180.74 811.65,177.48 810.33,175.00 C809.01,172.52 807.28,170.21 805.63,168.31 C803.97,166.42 802.16,164.93 800.43,163.61 C798.69,162.29 797.25,161.34 795.23,160.39 C793.20,159.44 790.56,158.49 788.29,157.92 Z M739.52,180.94 C740.59,180.57 740.76,180.53 741.99,180.45 C743.23,180.36 745.75,180.36 746.95,180.45 C748.14,180.53 748.14,180.57 749.17,180.94 C750.21,181.31 751.69,181.73 753.14,182.68 C754.58,183.62 756.89,185.98 757.84,186.64 C758.79,187.30 757.88,187.30 758.83,186.64 C759.78,185.98 762.34,183.54 763.53,182.68 C764.73,181.81 764.98,181.81 766.01,181.44 C767.04,181.07 768.03,180.57 769.72,180.45 C771.42,180.32 774.47,180.45 776.16,180.69 C777.85,180.94 778.64,181.31 779.88,181.93 C781.11,182.55 782.31,183.29 783.59,184.41 C784.87,185.52 786.48,187.09 787.55,188.62 C788.62,190.14 789.49,192.13 790.03,193.57 C790.56,195.01 790.65,195.96 790.77,197.28 C790.89,198.60 790.85,200.30 790.77,201.49 C790.69,202.69 790.60,203.18 790.27,204.46 C789.94,205.74 789.70,207.06 788.79,209.17 C787.88,211.27 786.40,214.49 784.83,217.09 C783.26,219.69 781.20,222.46 779.38,224.77 C777.56,227.08 776.41,228.44 773.93,230.96 C771.46,233.47 767.04,237.68 764.52,239.87 C762.01,242.06 759.94,243.38 758.83,244.08 C757.72,244.78 759.61,245.36 757.84,244.08 C756.07,242.80 751.36,239.33 748.18,236.40 C745.01,233.47 741.50,229.72 738.78,226.50 C736.05,223.28 733.49,219.61 731.84,217.09 C730.19,214.57 729.70,213.21 728.87,211.40 C728.05,209.58 727.39,207.89 726.89,206.20 C726.40,204.50 726.07,202.69 725.90,201.24 C725.74,199.80 725.82,198.65 725.90,197.53 C725.98,196.42 726.15,195.51 726.40,194.56 C726.64,193.61 726.77,193.03 727.39,191.84 C728.00,190.64 729.16,188.62 730.11,187.38 C731.06,186.14 732.17,185.19 733.08,184.41 C733.99,183.62 734.48,183.25 735.56,182.68 C736.63,182.10 738.45,181.31 739.52,180.94 Z"/></svg></a>
-  <nav class="top" aria-label="Secciones"><a href="#tratamientos">Tratamientos</a><a href="#implantes">Implantes</a><a href="#precio">Precio y mutuas</a><a href="#opiniones">Opiniones</a></nav>
+  <nav class="top" aria-label="Secciones"><a href="#que-te-pasa">Qué te pasa</a><a href="#clinicas">Clínicas</a><a href="#tratamientos">Tratamientos</a><a href="#precio">Precio</a><a href="#opiniones">Opiniones</a></nav>
   <a class="hd-tel" href="tel:+34933704377">933 704 377</a>
   <a class="btn p sm" href="#cita">Pedir cita</a>
 </div></header>
@@ -399,7 +447,7 @@ html.js .gal.up.in figure:nth-child(2){transition-delay:.1s}html.js .gal.up.in f
   <div class="w hbar fx" style="--d:1.1s">
     <a class="hsede" href="tel:+34933704377" data-h="prat"><span class="nm">El Prat</span><span class="live"><i></i><span></span></span><b>933 704 377</b></a>
     <a class="hsede" href="tel:+34936388181" data-h="gava"><span class="nm">Gavà</span><span class="live"><i></i><span></span></span><b>936 388 181</b></a>
-    <a class="hdown" href="#que-te-pasa" aria-label="Bajar a las clínicas"><span></span></a>
+    <a class="hdown" href="#que-te-pasa" aria-label="Bajar a ¿Qué te pasa?"><span></span></a>
   </div>
 </section>
 
@@ -521,23 +569,23 @@ html.js .gal.up.in figure:nth-child(2){transition-delay:.1s}html.js .gal.up.in f
     <ol class="steps">
       <li class="on" data-l="Primera visita"><h3>Primera visita</h3><p>Revisamos tu boca, resolvemos tus dudas y te damos el presupuesto por escrito, sin compromiso.</p></li>
       <li data-l="TAC 3D en la clínica"><h3>TAC 3D</h3><p>En la propia clínica hacemos una imagen en 3D del hueso, en pocos minutos y sin ir a otro centro.</p></li>
-      <li data-l="Cirugía guiada"><h3>Cirugía guiada</h3><p>Con el TAC planificamos el implante y una guía impresa en 3D lo coloca justo donde se decidió. La cirugía es más corta.</p></li>
+      <li data-l="Cirugía guiada"><h3>Cirugía guiada</h3><p>Con el TAC planificamos el implante y una guía impresa en 3D lo coloca justo donde se decidió. Con anestesia local y, si te da miedo, sedación: la cirugía es más corta y más tranquila.</p></li>
       <li data-l="Diente nuevo"><h3>Diente nuevo</h3><p>Cuando el implante se ha integrado, colocamos el diente definitivo y te vemos en revisiones para que dure muchos años.</p></li>
     </ol>
   </div>
 </div></section>
 
-<section id="opiniones" style="padding-top:20px"><div class="w">
+<section id="opiniones" class="bg-soft"><div class="w">
   <h2 class="rv-h">Lo que dicen nuestros pacientes</h2>
   <div class="scores"><div><b><span class="cnt" data-to="4.6">4,6</span> ★</b><span>Gavà · 14 reseñas en Google</span></div><div><b><span class="cnt" data-to="4.3">4,3</span> ★</b><span>El Prat · 24 reseñas en Google</span></div></div>
   <div class="rev-g up">
-    <div class="rv big"><p>“Jordi, Sandra y Vicky te tratan como en casa. Me explicaron todo antes de empezar.”</p><small><span class="st">★★★★★</span> Paciente de Gavà · Google <span class="pend">texto de ejemplo</span></small></div>
+    <div class="rv big"><p>Jordi, Sandra y Vicky te tratan como en casa. Me explicaron todo antes de empezar.</p><small><span class="st">★★★★★</span> Paciente de Gavà · Google <span class="pend">texto de ejemplo</span></small></div>
     <div class="rv"><span class="st">★★★★★</span><p>“Súper amables y profesionales. Total confianza.”</p><small>Paciente de El Prat · Google <span class="pend">texto de ejemplo</span></small></div>
     <div class="rv"><span class="st">★★★★★</span><p>“Me puse un implante y no me enteré. Muy buen seguimiento.”</p><small>Paciente de implantes · Google <span class="pend">texto de ejemplo</span></small></div>
   </div>
 </div></section>
 
-<section style="padding-top:20px"><div class="w">
+<section class="galsec"><div class="w">
   <div class="gal-top">
     <h2 class="rv-h">Así es la clínica</h2>
     <div class="gal-nav"><button type="button" aria-label="Foto anterior" data-d="-1"><svg><use href="#i-al"/></svg></button><button type="button" aria-label="Foto siguiente" data-d="1"><svg><use href="#i-ar"/></svg></button></div>
@@ -550,7 +598,7 @@ html.js .gal.up.in figure:nth-child(2){transition-delay:.1s}html.js .gal.up.in f
   </div>
 </div></section>
 
-<section style="padding-top:20px"><div class="w">
+<section class="teamsec"><div class="w">
   <h2 class="rv-h">El equipo</h2>
   <p class="sub">Las mismas caras en cada visita. Aquí irán las fotos del equipo. <span class="pend">a confirmar</span></p>
   <ul class="team up">
@@ -561,7 +609,7 @@ html.js .gal.up.in figure:nth-child(2){transition-delay:.1s}html.js .gal.up.in f
   </ul>
 </div></section>
 
-<section style="padding-top:20px"><div class="w faq-g">
+<section class="bg-soft"><div class="w faq-g">
   <div><h2 class="rv-h">Preguntas frecuentes</h2><p class="sub">Lo que más nos preguntan antes de la primera visita.</p></div>
   <div>
     <details open><summary>¿Cuánto cuesta la primera visita?</summary><p>La primera visita es sin compromiso: revisamos tu boca, te explicamos las opciones y te damos el presupuesto por escrito. <span class="pend">precio a confirmar</span></p></details>
@@ -585,15 +633,15 @@ html.js .gal.up.in figure:nth-child(2){transition-delay:.1s}html.js .gal.up.in f
   </div>
   <form id="f" novalidate>
     <div class="row2"><label>Nombre<input name="n" required autocomplete="given-name" placeholder="Tu nombre"></label><label>Teléfono<input name="t" required type="tel" autocomplete="tel" placeholder="600 000 000" pattern="[0-9 +]{9,15}"></label></div>
-    <div class="row2"><label>Clínica<select name="c"><option>El Prat</option><option>Gavà</option><option>Me da igual</option></select></label>
+    <div class="row2"><label>Clínica<select name="c"><option>La que me quede mejor</option><option>El Prat</option><option>Gavà</option></select></label>
     <label>Motivo<select name="m" id="motivo"><option>Primera visita</option><option>Me duele</option><option>Implantes</option><option>Ortodoncia</option><option>Revisión y limpieza</option><option>Para mis hijos</option><option>Estética</option></select></label></div>
     <button class="btn p" type="submit">Quiero que me llaméis</button>
-    <small id="f-msg" role="status">Te llamamos en horario de clínica. Usamos tus datos solo para darte cita.</small>
+    <small id="f-msg" role="status">Te llamamos en horario de clínica para darte hora. Primera visita sin compromiso y presupuesto por escrito. Usamos tus datos solo para darte cita.</small>
   </form>
 </div></section>
 </main>
 
-<footer><div class="w"><span>Proboca Clinic · BH Dental SCP · El Prat de Llobregat y Gavà</span><span>Aviso legal · Privacidad · Cookies · Accesibilidad</span></div></footer>
+<footer class="dark"><div class="w"><span>Proboca Clinic · BH Dental SCP · El Prat de Llobregat y Gavà</span><span>Aviso legal · Privacidad · Cookies · Accesibilidad</span></div></footer>
 
 <nav class="mbar" aria-label="Acciones rápidas">
   <a href="tel:+34933704377"><svg><use href="#i-tel"/></svg>Llamar<br>El Prat</a>
@@ -671,6 +719,7 @@ html.js .gal.up.in figure:nth-child(2){transition-delay:.1s}html.js .gal.up.in f
     document.getElementById('np-d').innerHTML = n.d + ' <span class="pend">orientativo</span>';
     document.getElementById('np-go').dataset.m = n.m;
     draw(k); if (focus) b.focus();
+    if (!first && innerWidth <= 900) { const pn = document.getElementById('np'), r = pn.getBoundingClientRect(); if (r.top > innerHeight * .6) pn.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start'}); }
   }
   tabs.forEach((b, i) => {
     b.addEventListener('click', () => pick(b));
@@ -679,7 +728,7 @@ html.js .gal.up.in figure:nth-child(2){transition-delay:.1s}html.js .gal.up.in f
       if (d) { e.preventDefault(); pick(tabs[(i + d + tabs.length) % tabs.length], true); }
     });
   });
-  pick(tabs[0]);
+  let first = true; pick(tabs[0]); first = false;
   document.getElementById('np-go').addEventListener('click', e => { document.getElementById('motivo').value = e.currentTarget.dataset.m; });
 })();
 
@@ -700,11 +749,13 @@ html.js .gal.up.in figure:nth-child(2){transition-delay:.1s}html.js .gal.up.in f
 // Formulario: errores claros
 (() => {
   const f = document.getElementById('f'), msg = document.getElementById('f-msg');
+  const bad = (el, t) => { msg.textContent = t; msg.classList.add('err'); el.setAttribute('aria-invalid', 'true'); el.setAttribute('aria-describedby', 'f-msg'); el.focus(); };
+  f.addEventListener('input', e => { e.target.removeAttribute('aria-invalid'); msg.classList.remove('err'); });
   f.addEventListener('submit', e => {
     e.preventDefault();
     const n = f.n.value.trim(), t = f.t.value.replace(/\s/g, '');
-    if (!n) { msg.textContent = 'Falta tu nombre.'; f.n.focus(); return; }
-    if (!/^\+?\d{9,13}$/.test(t)) { msg.textContent = 'Revisa el teléfono: tiene que tener 9 cifras.'; f.t.focus(); return; }
+    if (!n) { bad(f.n, 'Falta tu nombre.'); return; }
+    if (!/^\+?\d{9,13}$/.test(t)) { bad(f.t, 'Revisa el teléfono: tiene que tener 9 cifras.'); return; }
     msg.textContent = '¡Gracias, ' + n + '! Te llamamos en horario de clínica.';
     f.querySelector('button').textContent = 'Recibido';
   });
@@ -712,7 +763,7 @@ html.js .gal.up.in figure:nth-child(2){transition-delay:.1s}html.js .gal.up.in f
 // D3: cabecera sólida al bajar, fotos de portada que se alternan y revelados
 (() => {
   const hd = document.querySelector('header'), hero = document.querySelector('.hero');
-  const onScroll = () => hd.classList.toggle('solid', scrollY > hero.offsetHeight - 120);
+  const onScroll = () => hd.classList.toggle('solid', scrollY > 40);
   addEventListener('scroll', onScroll, {passive:true}); onScroll();
   const imgs = [...document.querySelectorAll('.slides img')], caps = ['Foto real · gabinete', 'Foto real · sala de espera', 'Foto real · sala del TAC 3D'], cap = document.getElementById('cap-t');
   const quiet = matchMedia('(prefers-reduced-motion: reduce)').matches;
